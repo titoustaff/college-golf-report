@@ -221,7 +221,7 @@ function render(){
       ${p.hs?`<span class="hs">— ${esc(p.hs)}</span>`:''}</li>`).join('');
     return `<tr class="main" data-i="${i}">
       <td class="rank hide-sm hide-md">${i+1}</td>
-      <td><button class="team-btn" aria-expanded="false">${esc(t.name)}</button>${t.french?`<span class="frfr" title="${t.french} joueur(s) français">🇫🇷${t.french>1?t.french:''}</span>`:''}</td>
+      <td><button class="team-btn" aria-expanded="false">${esc(t.name)}</button>${t.french?`<span class="frfr" title="${t.french} joueur(s) français">🇫🇷${t.french>1?' '+t.french:''}</span>`:''}</td>
       <td><span class="chip ${t.division==='D2'?'d2':'naia'}">${t.division}</span></td>
       <td class="st hide-sm">${t.state||''}</td>
       <td class="num hide-sm hide-md">${t.roster}</td>
