@@ -111,6 +111,7 @@ a.src:hover{text-decoration:underline}
 .estatus{font-family:"IBM Plex Mono",monospace;font-size:.66rem;color:var(--faint);
   border:1px solid var(--line);border-radius:5px;padding:.05rem .35rem;margin-left:.35rem;white-space:nowrap}
 .results{font-size:.85rem;color:var(--muted);margin:.2rem 0 .8rem}
+.filtline{display:block;margin-top:.3rem;font-size:.8rem;color:var(--faint)}
 .results b{color:var(--ink);font-size:1rem}
 .dmeta{display:none;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;font-size:.82rem;color:var(--muted);
   margin-bottom:.7rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
@@ -287,12 +288,12 @@ function render(){
   const flags=(state.st?' · '+state.st:'')+(state.intlonly?' · 🌍 seulement':'')+(state.fronly?' · 🇫🇷 seulement':'');
   const parts=[`<b>${r.length}</b> équipe${r.length>1?'s':''} affichée${r.length>1?'s':''}`,
     `🎓 <b>${rsen}</b> seniors (départs 2027) · ${rdep28} en 2028`,
-    `${rd2} D2 · ${rnaia} NAIA`,
-    `filtre : ${state.div==='all'?'toutes divisions':state.div} · ${depTxt}${flags}`];
+    `${rd2} D2 · ${rnaia} NAIA`];
   if(rintl) parts.push(`🌍 ${rintl} avec internationaux`);
   if(rfr) parts.push(`🇫🇷 ${rfr} avec Français`);
   if(rempty) parts.push(`⚪ ${rempty} non récupérée${rempty>1?'s':''}`);
-  document.getElementById('results').innerHTML=parts.join(' &nbsp;•&nbsp; ');
+  const filtreLine=`filtre : ${state.div==='all'?'toutes divisions':state.div} · ${depTxt}${flags}`;
+  document.getElementById('results').innerHTML=parts.join(' &nbsp;•&nbsp; ')+`<span class="filtline">${filtreLine}</span>`;
 }
 function isIntl(hw){if(!hw||!hw.includes(','))return false;const t=hw.split(',').pop().trim().toLowerCase().replace(/\./g,'');
   return t&&!US.has(t)&&t!=='usa'&&t!=='us';}
