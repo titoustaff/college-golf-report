@@ -222,7 +222,7 @@ function render(){
       <td class="num"><span class="pill" style="background:${heat(t.seniors)}">${t.seniors}</span></td>
       <td class="num cls2028">${t.dep2028||0}</td>
       <td class="num cls2028 hide-sm hide-md">${t.so||0}</td>
-      <td class="num intl hide-sm hide-md">${t.intl?('🌍'+t.intl):'—'}</td>
+      <td class="num intl hide-sm hide-md">${t.intl?('🌍 '+t.intl):'—'}</td>
       <td class="coach hide-sm" title="${esc(t.coach)}">${esc(t.coach)||'—'}</td>
       <td class="hide-sm hide-md"><a class="src" href="${t.roster_url}" target="_blank" rel="noopener">roster ↗</a></td>
     </tr>
