@@ -81,7 +81,7 @@ tr.main.open td{border-bottom:0}
 .frfr{font-size:.82rem;margin-left:.4rem;white-space:nowrap;font-family:"IBM Plex Mono",monospace;
   font-weight:600;color:var(--accent);vertical-align:middle}
 .frline b,.frline{color:var(--ink)}
-.coach{font-size:.85rem;color:var(--muted)}
+.coach{font-size:.85rem;color:var(--muted);max-width:11rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .intl{font-family:"IBM Plex Mono",monospace;font-size:.82rem;color:var(--muted)}
 tr.detail td{background:var(--panel2);padding:.4rem .9rem .7rem 3rem}
 ul.roster{list-style:none;margin:0;padding:0;columns:2;column-gap:2rem;font-size:.85rem}
@@ -104,6 +104,10 @@ a.src:hover{text-decoration:underline}
 .dmeta{display:none;flex-wrap:wrap;gap:.4rem 1rem;align-items:center;font-size:.82rem;color:var(--muted);
   margin-bottom:.7rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
 .dmeta b{color:var(--ink)}
+/* ---------- Responsive : tablette / petit laptop ---------- */
+/* Entre 760 et 1080px, les 12 colonnes ne rentrent pas : on masque le secondaire
+   pour que rien ne soit coupé (la vue détaillée au clic garde tout). */
+@media (max-width:1080px){ .hide-md{display:none!important} }
 /* ---------- Responsive : smartphone ---------- */
 @media (max-width:760px){
   .wrap{padding:1.4rem .8rem 3rem}
@@ -156,18 +160,18 @@ par les universités (accès public, respect des robots.txt). À confirmer direc
 <div class="tablewrap">
 <table>
 <thead><tr>
-  <th class="num hide-sm" style="width:2.5rem">#</th>
+  <th class="num hide-sm hide-md" style="width:2.5rem">#</th>
   <th data-sort="name">Équipe</th>
   <th data-sort="division">Div</th>
   <th data-sort="state" class="hide-sm">État</th>
-  <th class="num hide-sm" data-sort="roster">Roster</th>
-  <th class="hide-sm" title="Répartition Freshman · Sophomore · Junior · Senior">Classes (Fr·So·Jr·Sr)</th>
+  <th class="num hide-sm hide-md" data-sort="roster">Roster</th>
+  <th class="hide-sm hide-md" title="Répartition Freshman · Sophomore · Junior · Senior">Classes (Fr·So·Jr·Sr)</th>
   <th class="num" data-sort="seniors">Dép. 2027</th>
   <th class="num" data-sort="dep2028" title="Juniors actuels = départs probables en 2028">Dép. 2028</th>
-  <th class="num hide-sm" data-sort="so" title="Sophomores actuels = départs probables en 2029">Dép. 2029</th>
-  <th class="num hide-sm" data-sort="intl" title="Joueurs internationaux (hors USA)">🌍 Intl</th>
+  <th class="num hide-sm hide-md" data-sort="so" title="Sophomores actuels = départs probables en 2029">Dép. 2029</th>
+  <th class="num hide-sm hide-md" data-sort="intl" title="Joueurs internationaux (hors USA)">🌍 Intl</th>
   <th data-sort="coach" class="hide-sm">Coach</th>
-  <th class="hide-sm">Source</th>
+  <th class="hide-sm hide-md">Source</th>
 </tr></thead>
 <tbody id="rows"></tbody>
 </table>
@@ -207,18 +211,18 @@ function render(){
       <span class="yr">${p.year}</span> ${esc(p.hometown)||''}${flag(p.hometown)}
       ${p.hs?`<span class="hs">— ${esc(p.hs)}</span>`:''}</li>`).join('');
     return `<tr class="main" data-i="${i}">
-      <td class="rank hide-sm">${i+1}</td>
+      <td class="rank hide-sm hide-md">${i+1}</td>
       <td><button class="team-btn" aria-expanded="false">${esc(t.name)}</button>${t.french?`<span class="frfr" title="${t.french} joueur(s) français">🇫🇷${t.french>1?t.french:''}</span>`:''}</td>
       <td><span class="chip ${t.division==='D2'?'d2':'naia'}">${t.division}</span></td>
       <td class="st hide-sm">${t.state||''}</td>
-      <td class="num hide-sm">${t.roster}</td>
-      <td class="cls hide-sm">${t.fr}·${t.so}·${t.jr}·<b>${t.sr}</b></td>
+      <td class="num hide-sm hide-md">${t.roster}</td>
+      <td class="cls hide-sm hide-md">${t.fr}·${t.so}·${t.jr}·<b>${t.sr}</b></td>
       <td class="num"><span class="pill" style="background:${heat(t.seniors)}">${t.seniors}</span></td>
       <td class="num cls2028">${t.dep2028||0}</td>
-      <td class="num cls2028 hide-sm">${t.so||0}</td>
-      <td class="num intl hide-sm">${t.intl?('🌍'+t.intl):'—'}</td>
-      <td class="coach hide-sm">${esc(t.coach)||'—'}</td>
-      <td class="hide-sm"><a class="src" href="${t.roster_url}" target="_blank" rel="noopener">roster ↗</a></td>
+      <td class="num cls2028 hide-sm hide-md">${t.so||0}</td>
+      <td class="num intl hide-sm hide-md">${t.intl?('🌍'+t.intl):'—'}</td>
+      <td class="coach hide-sm" title="${esc(t.coach)}">${esc(t.coach)||'—'}</td>
+      <td class="hide-sm hide-md"><a class="src" href="${t.roster_url}" target="_blank" rel="noopener">roster ↗</a></td>
     </tr>
     <tr class="detail" hidden><td colspan="12">
       <div class="dmeta"><span class="chip ${t.division==='D2'?'d2':'naia'}">${t.division}</span>
