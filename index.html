@@ -281,10 +281,12 @@ function render(){
   // ligne récap dynamique du filtre courant
   const rd2=r.filter(t=>t.division==='D2').length, rnaia=r.length-rd2,
     rfr=r.filter(t=>t.french>0).length, rintl=r.filter(t=>t.intl>0).length,
-    rempty=r.filter(t=>t.empty).length;
+    rempty=r.filter(t=>t.empty).length,
+    rsen=r.reduce((a,t)=>a+t.seniors,0), rdep28=r.reduce((a,t)=>a+(t.dep2028||0),0);
   const depTxt=state.min===0?'tous départs':`≥ ${state.min} départ${state.min>1?'s':''} 2027`;
   const flags=(state.st?' · '+state.st:'')+(state.intlonly?' · 🌍 seulement':'')+(state.fronly?' · 🇫🇷 seulement':'');
   const parts=[`<b>${r.length}</b> équipe${r.length>1?'s':''} affichée${r.length>1?'s':''}`,
+    `🎓 <b>${rsen}</b> seniors (départs 2027) · ${rdep28} en 2028`,
     `${rd2} D2 · ${rnaia} NAIA`,
     `filtre : ${state.div==='all'?'toutes divisions':state.div} · ${depTxt}${flags}`];
   if(rintl) parts.push(`🌍 ${rintl} avec internationaux`);
