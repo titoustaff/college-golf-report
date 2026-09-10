@@ -276,7 +276,7 @@ function ficheHTML(t){
     ${t.police?`<p class="ftxt"><b>🛡 Sécurité :</b> ${esc(t.police)}</p>`:''}
     ${clery}
     <p class="flinks">${t.site?`<a class="src" href="${t.site}" target="_blank" rel="noopener">site de la fac ↗</a>`:''}
-      ${t.mapped?`<a class="src" href="carte.html">voir sur la carte ↗</a>`:''}</p></div>`;
+      ${t.mapped?`<a class="src" href="carte.html?fac=${encodeURIComponent(t.name)}">voir sur la carte ↗</a>`:''}</p></div>`;
 }
 function render(){
   let r=DATA.filter(t=>(state.div==='all'||t.division===state.div)&&t.seniors>=state.min

@@ -151,4 +151,15 @@ document.getElementById('indooronly').addEventListener('change',e=>{st.indooronl
 document.getElementById('nearonly').addEventListener('change',e=>{st.nearonly=e.target.checked;draw();});
 document.getElementById('q').addEventListener('input',e=>{st.q=e.target.value;draw();});
 draw();
+// arrivée depuis la page liste : carte.html?fac=<nom> -> on centre et on ouvre la fiche
+(function(){
+  const want=new URLSearchParams(location.search).get('fac')||decodeURIComponent(location.hash.slice(1));
+  if(!want) return;
+  const t=DATA.find(x=>x.name===want)||DATA.find(x=>x.name.toLowerCase()===want.toLowerCase());
+  if(!t) return;
+  document.getElementById('q').value=t.name; st.q=t.name; draw();   // n'affiche que cette fac
+  map.setView([t.lat,t.lon],11);
+  showFiche(t);
+  const m=markers[0]; if(m&&m.openTooltip) m.openTooltip();
+})();
 </script></body></html>
