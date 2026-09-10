@@ -39,8 +39,8 @@ a.src:hover{text-decoration:underline}
 <h1>🏌️ À fiabiliser — équipes non récupérées</h1>
 <p class="lede">Les programmes dont le roster n'a pas pu être lu automatiquement. Objectif : trouver le bon lien (souvent un mauvais domaine) ou vérifier à la main.</p>
 <div class="tiles"><div class="tile"><div class="n">2</div><div class="l">non récupérées</div></div>
-<div class="tile g"><div class="n">0</div><div class="l">🟢 récupérables (mauvais domaine ?)</div></div>
-<div class="tile r"><div class="n">2</div><div class="l">🔴 protégées (Cloudflare/robots)</div></div></div>
+<div class="tile g"><div class="n">1</div><div class="l">🟢 récupérables (mauvais domaine ?)</div></div>
+<div class="tile r"><div class="n">1</div><div class="l">🔴 protégées (Cloudflare/robots)</div></div></div>
 <div class="note"><b>🟢 Récupérables</b> = injoignable / 404 / non synchro → souvent juste un mauvais domaine : ouvre le lien, trouve le bon site, et envoie-moi l'URL qui marche.<br>
 <b>🔴 Protégées</b> = Cloudflare / robots.txt → on ne les lit pas (règle : pas de contournement), mais tu peux consulter le roster à la main via le lien.</div>
 <div class="controls">
@@ -53,7 +53,7 @@ a.src:hover{text-decoration:underline}
 <p class="foot">Généré par <code>scout.py</code>. Trie en cliquant les en-têtes. La page principale : <a class="src" href="index.html">index.html</a></p>
 </div>
 <script>
-const DATA=[{"name": "Baker", "division": "NAIA", "state": "KS", "url": "https://www.bakerwildcats.com/sports/mgolf/roster", "status": "Cloudflare (anti-bot)", "cat": "protege"}, {"name": "Central Methodist", "division": "NAIA", "state": "MO", "url": "https://cmueagles.com/sports/mens-golf/roster", "status": "Cloudflare (anti-bot)", "cat": "protege"}];const st={cat:'all',div:'all',q:'',k:'name',dir:1};
+const DATA=[{"name": "Baker", "division": "NAIA", "state": "KS", "url": "https://www.bakerwildcats.com/sports/mgolf/2026-27/roster", "status": "jamais synchronisé", "cat": "recup"}, {"name": "Central Methodist", "division": "NAIA", "state": "MO", "url": "https://cmueagles.com/sports/mens-golf/roster", "status": "Cloudflare (anti-bot)", "cat": "protege"}];const st={cat:'all',div:'all',q:'',k:'name',dir:1};
 const rowsEl=document.getElementById('rows');
 const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function render(){let r=DATA.filter(t=>(st.cat=='all'||t.cat==st.cat)&&(st.div=='all'||t.division==st.div));
