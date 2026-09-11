@@ -170,6 +170,8 @@ td.fiche i.on{opacity:1}
 .methodo[open] summary::before{content:'▾ '}
 .methodo .mcont{padding:0 .9rem .9rem;font-size:.84rem;line-height:1.5;color:var(--ink)}
 .methodo h4{margin:1rem 0 .3rem;font-size:.88rem}
+.methodo .mh5{margin:.9rem 0 .2rem;font-size:.82rem;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.03em}
 .methodo ul{margin:.2rem 0 .2rem 1.1rem;padding:0}
 .methodo li{margin:.18rem 0}
 .methodo .mwarn{border-left:3px solid var(--accent);padding:.4rem .7rem;background:var(--panel);
@@ -363,6 +365,14 @@ note, et chaque point de pourcentage compte. La formule est toujours la même :<
 <tr><td>90 %</td><td>1</td><td>au-dessus, plafond — pas de bonus</td></tr></table>
 <p class="msmall">Une fac à 30 % et une à 60 % sont donc à <b>0,10</b> et <b>0,70</b> : rien à voir.
 Les bornes ne sont pas une tranche, ce sont le plancher et le plafond de la règle graduée.</p>
+
+<p class="mwarn"><b>Pourquoi ces bornes-là ?</b> Elles épousent la plage réelle des données, pour que
+la note serve à distinguer les facs entre elles. Sur nos 266 établissements, la diplomation en
+4 ans va de 16 % à 90 %, médiane à 49 % — et <b>250 d'entre eux, soit 94 %, tombent entre 25 et
+75 %</b>. Prendre ces deux valeurs comme plancher et plafond étale donc presque tout le monde sur
+la totalité de la note. Des bornes plus larges (0 à 100) tasseraient tout le monde au milieu et ne
+distingueraient plus rien. La contrepartie est assumée : <b>9 facs sous 25 % sont toutes à 0</b>,
+et <b>7 au-dessus de 75 % toutes à 1</b> — à ces extrêmes, la question n'est plus de départager.</p>
 <p class="msmall">Autrement dit, les bornes ne sont pas des seuils à franchir : ce sont le
 plancher et le plafond d'une règle graduée.</p>
 
@@ -490,8 +500,33 @@ toucher une balle dehors.</p>
   quatre ans, pour 48 000 $ l'année.</p>
 </div></div>
 
-<p class="msmall">Le coût est le prix <b>affiché</b>, avant aide. Pour une université publique il est
-calculé sur le tarif résident de l'État : un étudiant étranger paie davantage.</p>
+<h5 class="mh5">Ce que mesure chaque indicateur</h5>
+<p class="msmall"><b>Diplomation en 4 ans</b> — la part d'une promotion qui décroche son diplôme
+dans les délais (au sens américain : 150 % du temps normal, donc 6 ans pour un cursus de 4). C'est
+le résultat final : la fac amène-t-elle ses étudiants au bout ?</p>
+
+<p class="msmall"><b>Rétention en 2<sup>e</sup> année</b> — la part des étudiants de première année
+qui <b>reviennent l'année suivante</b>. C'est le signal le plus précoce et le plus brutal qui
+existe : il se mesure au bout de douze mois, là où la diplomation demande six ans. Une rétention
+basse veut dire qu'on arrive, qu'on ne s'y retrouve pas, et qu'on repart — pour raisons
+financières, académiques ou d'intégration. Pour un étranger de 17 ans qui débarque seul, c'est
+sans doute l'indicateur le plus parlant de toute la fiche.<br>
+Sur nos 266 facs : de <b>33 %</b> (Post) à <b>97 %</b> (Hillsdale), médiane à 71 %. Bornes 55 et 88,
+qui étalent 240 facs sur 266. En dessous de 55 %, plus d'un étudiant sur deux ne revient pas :
+il n'y a plus lieu de départager.</p>
+
+<p class="msmall"><b>Revenu médian à 10 ans</b> — le salaire médian des anciens, dix ans après leur
+<i>entrée</i> (pas après leur diplôme, donc les non-diplômés comptent aussi). Il dépend fortement
+des filières dominantes de la fac.</p>
+
+<p class="msmall"><b>Coût annuel</b> — le prix <b>affiché</b>, avant aide, tout compris : scolarité,
+frais, logement, restauration, livres. Pour une université publique il est calculé sur le tarif
+<b>résident de l'État</b> : un étudiant étranger paie davantage, parfois beaucoup
+(+24 000 $ à Colorado Mines, +4 400 $ seulement à South Dakota Mines).</p>
+
+<p class="msmall"><b>Largeur de l'offre</b> — le nombre de grands domaines pesant au moins 5 % des
+diplômes délivrés. Mesure la diversité des études possibles, utile tant qu'une filière précise
+n'est pas arrêtée.</p>
 
 <h4>🛡 Sécurité — <i>échelle pour les faits, cumul pour le dispositif</i></h4>
 <ul>
