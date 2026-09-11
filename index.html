@@ -60,6 +60,10 @@ label.minlab{font-size:.85rem;color:var(--muted);display:inline-flex;align-items
   /* la table peut être plus large que la colonne de texte : on la déborde et on la recentre sur l'écran */
   width:min(1160px,calc(100vw - 2rem));margin-left:50%;transform:translateX(-50%)}
 table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:640px}
+/* avec les 4 colonnes de notes, on laisse la table s'elargir : le conteneur
+   defile horizontalement au lieu d'ecraser les cellules et de tronquer la fiche fac */
+table.avecnotes{min-width:1080px}
+table.avecnotes td.coach{max-width:9rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 thead th{text-align:left;font-weight:600;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
   color:var(--muted);padding:.75rem .8rem;border-bottom:1px solid var(--line);white-space:nowrap;cursor:pointer;user-select:none}
 thead th.num{text-align:center}
@@ -137,12 +141,19 @@ a.src:hover{text-decoration:underline}
 /* ---------- Responsive : tablette / petit laptop ---------- */
 /* Entre 760 et 1080px, les 12 colonnes ne rentrent pas : on masque le secondaire
    pour que rien ne soit coupé (la vue détaillée au clic garde tout). */
-@media (max-width:1080px){ .hide-md{display:none!important} }
+@media (max-width:1080px){
+  .hide-md{display:none!important}
+  /* moins de colonnes visibles ici : la table n'a plus besoin d'etre aussi large */
+  table.avecnotes{min-width:820px}
+}
 /* ---------- Responsive : smartphone ---------- */
 @media (max-width:760px){
   .wrap{padding:1.4rem .8rem 3rem}
   .hide-sm{display:none!important}
   table{min-width:0;font-size:.9rem;width:100%}
+  /* sur telephone, les notes restent lisibles : la table deborde et le conteneur defile */
+  table.avecnotes{min-width:560px}
+  table.avecnotes td.coach{max-width:none}
   thead th{padding:.6rem .5rem;font-size:.66rem}
   tbody td{padding:.6rem .5rem}
   .team-btn{font-size:.92rem;white-space:normal}
@@ -156,6 +167,7 @@ a.src:hover{text-decoration:underline}
 }
 @media (max-width:400px){ .tiles{grid-template-columns:1fr} }
 /* fiche fac (colonne + bloc déplié) */
+td.fiche{white-space:nowrap}
 td.fiche i{font-style:normal;opacity:.2;font-size:.95rem;letter-spacing:.08em}
 td.fiche i.on{opacity:1}
 .fiche-box{margin:.9rem 0 .2rem;padding:.8rem .9rem;background:var(--panel2,#eef2ea);border:1px solid var(--line);border-radius:10px}
@@ -918,6 +930,8 @@ document.getElementById('hideempty').addEventListener('change',e=>{state.hideEmp
 function majColonnes(){
   const on=state.voirnotes;
   document.querySelectorAll('.axecol').forEach(e=>{e.hidden=!on;});
+  const t=document.querySelector('.tablewrap table');
+  if(t) t.classList.toggle('avecnotes', on);
 }
 document.getElementById('voirnotes').addEventListener('change',e=>{
   state.voirnotes=e.target.checked;
