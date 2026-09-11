@@ -117,6 +117,7 @@ a.src:hover{text-decoration:underline}
   border:1px solid var(--accent);border-radius:5px;padding:.05rem .35rem;margin-left:.35rem;white-space:nowrap}
 .results{font-size:.85rem;color:var(--muted);margin:.2rem 0 .9rem;display:flex;
   flex-wrap:wrap;gap:.45rem .5rem;align-items:stretch}
+.sep{width:1px;align-self:stretch;background:var(--line);margin:0 .25rem}
 .rbloc{display:flex;flex-direction:column;gap:.1rem;padding:.35rem .6rem;border:1px solid var(--line);
   border-radius:8px;background:var(--card);min-width:5.2rem}
 .rbloc .rn{font-size:1.05rem;font-weight:700;color:var(--ink);line-height:1.15;
@@ -231,8 +232,6 @@ par les universités (accès public, respect des robots.txt). À confirmer direc
   </label>
   <label class="minlab frtoggle"><input type="checkbox" id="intlonly"> 🌍 avec internationaux</label>
   <label class="minlab frtoggle"><input type="checkbox" id="fronly"> 🇫🇷 avec Français</label>
-  <label class="minlab frtoggle"><input type="checkbox" id="hideempty" checked> masquer non récupérées</label>
-  <label class="minlab frtoggle"><input type="checkbox" id="todofiche"> 📋 fiche fac incomplète</label>
   <input type="search" id="q" placeholder="Filtrer par équipe ou état (ex. FL)…" aria-label="Recherche">
 </div>
 
@@ -248,9 +247,15 @@ par les universités (accès public, respect des robots.txt). À confirmer direc
     <select id="minsecurite" style="font:inherit;padding:.35rem .5rem;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink)"><option value="" selected>toutes</option></select></label>
   <label class="minlab" title="Milieu, hiver, part d'étrangers, taille">🏡 cadre
     <select id="mincadre" style="font:inherit;padding:.35rem .5rem;border-radius:7px;border:1px solid var(--line);background:var(--panel);color:var(--ink)"><option value="" selected>toutes</option></select></label>
+  <button class="minlab" id="resetnotes" style="cursor:pointer">remettre à zéro</button>
+  <span class="sep"></span>
+  <b style="font-size:.78rem;color:var(--muted)">Données</b>
+  <label class="minlab frtoggle" title="Les équipes dont le roster n'a pas pu être lu (site protégé, page introuvable)">
+    <input type="checkbox" id="hideempty" checked> masquer non récupérées</label>
+  <label class="minlab frtoggle" title="Fiche fac à moins de 4 informations renseignées sur 4 — la liste de ce qu'il reste à chercher">
+    <input type="checkbox" id="todofiche"> 📋 fiche fac incomplète</label>
   <label class="minlab frtoggle" title="Une fac dont l'axe filtré n'est pas noté est écartée par défaut, pour ne pas te faire croire qu'elle a été évaluée">
     <input type="checkbox" id="garderNonNotes"> garder les non notées</label>
-  <button class="minlab" id="resetnotes" style="cursor:pointer">tout remettre à zéro</button>
 </div>
 
 <p class="results" id="results"></p>
