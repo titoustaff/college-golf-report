@@ -195,6 +195,10 @@ td.fiche i.on{opacity:1}
   white-space:nowrap;text-align:right}
 .excard td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;width:3.4rem}
 .excard tr.calc td{background:var(--card);font-style:italic;color:var(--muted)}
+.excard tr.sec td{background:var(--card);font-size:.7rem;text-transform:uppercase;
+  letter-spacing:.04em;color:var(--muted);font-weight:600;padding-top:.4rem}
+.excard tr.sous td{font-weight:600;background:transparent}
+.excard tr.sous td.n{color:var(--ink)}
 .excard tr.tot td{background:var(--card);font-weight:700;border-bottom:none}
 .excard tr.tot td.n{color:var(--accent);font-size:1rem}
 .excard p{margin:.5rem .6rem .6rem;font-size:.76rem;color:var(--muted);line-height:1.45}
@@ -434,47 +438,60 @@ toucher une balle dehors.</p>
 <div class="excards">
 
 <div class="excard">
-  <div class="exhead">☀️ Nova Southeastern <span>Davie, Floride · 26,1°</span></div>
+  <div class="exhead">☀️ Nova Southeastern <span>Davie, Floride · latitude 26,1°</span></div>
   <table>
-    <tr><td>Installation couverte</td><td class="v">aucune</td><td class="f">offre</td><td class="n">0,00</td></tr>
-    <tr><td>Besoin climatique</td><td class="v">26,1°</td><td class="f">sous le 30<sup>e</sup></td><td class="n">0,00</td></tr>
-    <tr class="calc"><td colspan="3">1 − 0,00 × (1 − 0,00)</td><td class="n">1,00</td></tr>
-    <tr><td>Grande Oaks Golf Club</td><td class="v">1,3 km</td><td class="f">palier « ≤ 8 km »</td><td class="n">0,85</td></tr>
-    <tr class="calc"><td colspan="3">moyenne des 2 indicateurs : 1,85 ÷ 2</td><td class="n">0,93</td></tr>
-    <tr class="tot"><td colspan="3">mise sur 5 : 0,93 × 5</td><td class="n">4,6</td></tr>
+    <tr class="sec"><td colspan="3">Ce qu'elle a — l'offre</td></tr>
+    <tr><td>Installation couverte</td><td class="f">aucune trouvée</td><td class="n">0,00</td></tr>
+    <tr class="sec"><td colspan="3">Ce qu'il lui faut — le besoin</td></tr>
+    <tr><td>Latitude 26,1°</td><td class="f">sous le 30<sup>e</sup> : on joue toute l'année</td><td class="n">0,00</td></tr>
+    <tr class="sec"><td colspan="3">Les deux indicateurs de l'axe</td></tr>
+    <tr><td>Installation couverte</td><td class="f">1 − 0,00 × (1 − 0,00)</td><td class="n">1,00</td></tr>
+    <tr><td>Parcours d'attache</td><td class="f">Grande Oaks Golf Club, 1,3 km</td><td class="n">0,85</td></tr>
+    <tr class="tot"><td colspan="2">(1,00 + 0,85) ÷ 2 = 0,93 &nbsp;×&nbsp; 5</td><td class="n">4,6</td></tr>
   </table>
-  <p>Aucune installation couverte, et pourtant la meilleure note du trio : en Floride
-  on joue douze mois par an, cet équipement ne manque à personne.</p>
+  <p>Aucune installation couverte, et pourtant la meilleure note du trio : en Floride on joue
+  douze mois par an, cet équipement ne manque à personne. Le besoin étant nul, son absence ne
+  retire rien.</p>
 </div>
 
 <div class="excard">
-  <div class="exhead">❄️ Tiffin <span>Tiffin, Ohio · 41,1°</span></div>
+  <div class="exhead">❄️ Saginaw Valley <span>University Center, Michigan · latitude 43,5°</span></div>
   <table>
-    <tr><td>Bâtiment dédié, contenu non publié</td><td class="v">plancher</td><td class="f">offre</td><td class="n">0,45</td></tr>
-    <tr><td>Besoin climatique</td><td class="v">41,1°</td><td class="f">entre 39 et 42°</td><td class="n">0,80</td></tr>
-    <tr class="calc"><td colspan="3">1 − 0,80 × (1 − 0,45)</td><td class="n">0,56</td></tr>
-    <tr><td>Mohawk Golf &amp; Country Club</td><td class="v">6,6 km</td><td class="f">palier « ≤ 8 km »</td><td class="n">0,85</td></tr>
-    <tr class="calc"><td colspan="3">moyenne des 2 indicateurs : 1,41 ÷ 2</td><td class="n">0,71</td></tr>
-    <tr class="tot"><td colspan="3">mise sur 5 : 0,71 × 5</td><td class="n">3,5</td></tr>
+    <tr class="sec"><td colspan="3">Ce qu'elle a — l'offre</td></tr>
+    <tr><td>Green de putting</td><td class="f">composant le plus lourd</td><td class="n">0,30</td></tr>
+    <tr><td>Postes de frappe <i>(deux)</i></td><td class="f">0,28 + 0,05 pour le second</td><td class="n">0,33</td></tr>
+    <tr><td>Simulateur</td><td class="f">dans l'un des deux postes</td><td class="n">0,20</td></tr>
+    <tr><td>Long jeu <i>et</i> petit jeu</td><td class="f">bonus de complémentarité</td><td class="n">+0,10</td></tr>
+    <tr class="sous"><td colspan="2">offre totale</td><td class="n">0,93</td></tr>
+    <tr class="sec"><td colspan="3">Ce qu'il lui faut — le besoin</td></tr>
+    <tr><td>Latitude 43,5°</td><td class="f">au-delà du 42<sup>e</sup> : hiver long</td><td class="n">1,00</td></tr>
+    <tr class="sec"><td colspan="3">Les deux indicateurs de l'axe</td></tr>
+    <tr><td>Installation couverte</td><td class="f">1 − 1,00 × (1 − 0,93)</td><td class="n">0,93</td></tr>
+    <tr><td>Parcours d'attache</td><td class="f">inconnu : sort du calcul</td><td class="n">—</td></tr>
+    <tr class="tot"><td colspan="2">un seul indicateur noté : 0,93 &nbsp;×&nbsp; 5</td><td class="n">4,7</td></tr>
+  </table>
+  <p>Le besoin est maximal et le George E. Eastlan Golf Center y répond presque entièrement.
+  Son parcours d'attache n'étant pas connu, la note repose sur ce seul indicateur — la moitié
+  des indicateurs de l'axe, soit le minimum requis pour noter.</p>
+</div>
+
+<div class="excard">
+  <div class="exhead">❄️ Tiffin <span>Tiffin, Ohio · latitude 41,1°</span></div>
+  <table>
+    <tr class="sec"><td colspan="3">Ce qu'elle a — l'offre</td></tr>
+    <tr><td>Bâtiment de golf dédié</td><td class="f">contenu non publié</td><td class="n">0,45</td></tr>
+    <tr class="sous"><td colspan="2">plancher, faute de détail vérifiable</td><td class="n">0,45</td></tr>
+    <tr class="sec"><td colspan="3">Ce qu'il lui faut — le besoin</td></tr>
+    <tr><td>Latitude 41,1°</td><td class="f">entre 39 et 42<sup>e</sup></td><td class="n">0,80</td></tr>
+    <tr class="sec"><td colspan="3">Les deux indicateurs de l'axe</td></tr>
+    <tr><td>Installation couverte</td><td class="f">1 − 0,80 × (1 − 0,45)</td><td class="n">0,56</td></tr>
+    <tr><td>Parcours d'attache</td><td class="f">Mohawk Golf &amp; Country Club, 6,6 km</td><td class="n">0,85</td></tr>
+    <tr class="tot"><td colspan="2">(0,56 + 0,85) ÷ 2 = 0,71 &nbsp;×&nbsp; 5</td><td class="n">3,5</td></tr>
   </table>
   <p>Le bâtiment existe — Tiffin est l'un des rares programmes de D2 à posséder le sien — mais
-  la fac n'en publie pas le contenu. Elle touche donc le plancher, pas le maximum : ce qu'on ne
-  peut pas vérifier ne se note pas comme acquis.</p>
+  la fac n'en publie pas le contenu. Elle touche donc le plancher et non le maximum : ce qu'on
+  ne peut pas vérifier ne se note pas comme acquis.</p>
 </div>
-
-<div class="excard">
-  <div class="exhead">❄️ Saginaw Valley <span>Michigan · 43,5°</span></div>
-  <table>
-    <tr><td>Green + 2 postes dont un simulateur</td><td class="v">3 composants</td><td class="f">0,30+0,28+0,20 +0,10 +0,05</td><td class="n">0,93</td></tr>
-    <tr><td>Besoin climatique</td><td class="v">43,5°</td><td class="f">au-delà du 42<sup>e</sup></td><td class="n">1,00</td></tr>
-    <tr class="calc"><td colspan="3">1 − 1,00 × (1 − 0,93)</td><td class="n">0,93</td></tr>
-    <tr><td>Parcours d'attache</td><td class="v">inconnu</td><td class="f">sort du calcul</td><td class="n">—</td></tr>
-    <tr class="tot"><td colspan="3">un seul indicateur : 0,93 × 5</td><td class="n">4,7</td></tr>
-  </table>
-  <p>Au 43<sup>e</sup> parallèle, le besoin est maximal — et le George E. Eastlan Golf Center y
-  répond presque entièrement. À l'inverse, une fac de cette latitude <b>sans</b> installation
-  couverte tomberait à 0 sur cet indicateur : c'est là que l'équipement décide.</p>
-</div></div>
 
 </div>
 
@@ -488,16 +505,17 @@ toucher une balle dehors.</p>
 <div class="excards"><div class="excard" style="flex:1 1 100%">
   <div class="exhead">🎓 Tiffin <span>exemple de calcul, axe Études</span></div>
   <table>
-    <tr><td>Diplomation en 4 ans</td><td class="v">39,9 %</td><td class="f">(39,9 − 25) ÷ (75 − 25)</td><td class="n">0,30</td></tr>
-    <tr><td>Rétention en 2<sup>e</sup> année</td><td class="v">71,6 %</td><td class="f">(71,6 − 55) ÷ (88 − 55)</td><td class="n">0,50</td></tr>
-    <tr><td>Revenu des diplômés</td><td class="v">55 664 $</td><td class="f">(55 664 − 43 000) ÷ 27 000</td><td class="n">0,47</td></tr>
-    <tr><td>Coût annuel <i>(cher = mauvais)</i></td><td class="v">48 004 $</td><td class="f">(58 000 − 48 004) ÷ 38 000</td><td class="n">0,26</td></tr>
-    <tr><td>Largeur de l'offre</td><td class="v">5 domaines</td><td class="f">(5 − 3) ÷ (9 − 3)</td><td class="n">0,33</td></tr>
-    <tr class="calc"><td colspan="3">moyenne des 5 indicateurs : 1,61 ÷ 5</td><td class="n">0,32</td></tr>
-    <tr class="tot"><td colspan="3">mise sur 5 : 0,32 × 5</td><td class="n">1,6</td></tr>
+    <tr class="sec"><td colspan="3">Les cinq indicateurs</td></tr>
+    <tr><td>Diplomation en 4 ans</td><td class="f">39,9 % · (39,9 − 25) ÷ 50</td><td class="n">0,30</td></tr>
+    <tr><td>Rétention en 2<sup>e</sup> année</td><td class="f">71,6 % · (71,6 − 55) ÷ 33</td><td class="n">0,50</td></tr>
+    <tr><td>Revenu des diplômés</td><td class="f">55 664 $ · (55 664 − 43 000) ÷ 27 000</td><td class="n">0,47</td></tr>
+    <tr><td>Coût annuel <i>(cher = mauvais)</i></td><td class="f">48 004 $ · (58 000 − 48 004) ÷ 38 000</td><td class="n">0,26</td></tr>
+    <tr><td>Largeur de l'offre</td><td class="f">5 domaines · (5 − 3) ÷ 6</td><td class="n">0,33</td></tr>
+    <tr class="tot"><td colspan="2">(0,30 + 0,50 + 0,47 + 0,26 + 0,33) ÷ 5 = 0,37 &nbsp;×&nbsp; 5</td><td class="n">1,9</td></tr>
   </table>
-  <p>Aucun indicateur ne la sauve : six étudiants sur dix n'ont pas leur diplôme au bout de
-  quatre ans, pour 48 000 $ l'année.</p>
+  <p>Aucun indicateur ne la sauve vraiment : six étudiants sur dix n'ont pas leur diplôme au bout
+  de quatre ans, pour 48 000 $ l'année. Seul le revenu de ses diplômés tient la route — c'est y
+  arriver qui est le problème, pas ce que le diplôme rapporte ensuite.</p>
 </div></div>
 
 <h5 class="mh5">Ce que mesure chaque indicateur</h5>
@@ -563,17 +581,20 @@ bornes d'appel d'urgence <b>+0,10</b>. Plafonné à 1,0.</li>
 <div class="excards"><div class="excard" style="flex:1 1 100%">
   <div class="exhead">🛡 Tiffin <span>exemple de calcul, axe Sécurité · 2 051 étudiants</span></div>
   <table>
-    <tr><td>Atteintes aux personnes</td><td class="v">2022 : 2</td><td class="f">dont 2 à caractère sexuel</td><td class="n"></td></tr>
-    <tr><td></td><td class="v">2023 : 11</td><td class="f">dont 9 à caractère sexuel</td><td class="n"></td></tr>
-    <tr><td></td><td class="v">2024 : 5</td><td class="f">dont 4 à caractère sexuel</td><td class="n"></td></tr>
-    <tr class="calc"><td colspan="3">faits sexuels : 5,0/an → 2,44 ‰ → 1 − (2,44 ÷ 2,5)</td><td class="n">0,02</td></tr>
-    <tr class="calc"><td colspan="3">violences physiques : 1,0/an → 0,49 ‰ → 1 − (0,49 ÷ 1,5)</td><td class="n">0,67</td></tr>
-    <tr><td>Atteintes aux biens</td><td class="v">0 sur 3 ans</td><td class="f">1 − (0 ÷ 4,5)</td><td class="n">1,00</td></tr>
-    <tr><td>Dispositif de sécurité</td><td class="v">24 h/24</td><td class="f">0,15 <i>(statut tu)</i> + 0,30</td><td class="n">0,45</td></tr>
+    <tr class="sec"><td colspan="3">Faits déclarés, année par année</td></tr>
+    <tr><td>2022</td><td class="f">2 faits à caractère sexuel · 0 violence · 0 bien</td><td class="n">2</td></tr>
+    <tr><td>2023</td><td class="f">9 faits à caractère sexuel · 2 violences · 0 bien</td><td class="n">11</td></tr>
+    <tr><td>2024</td><td class="f">4 faits à caractère sexuel · 1 violence · 0 bien</td><td class="n">5</td></tr>
+    <tr class="sec"><td colspan="3">Les quatre indicateurs</td></tr>
+    <tr><td>Faits à caractère sexuel</td><td class="f">5,0/an = 2,44 ‰ · 1 − (2,44 ÷ 2,5)</td><td class="n">0,02</td></tr>
+    <tr><td>Violences physiques</td><td class="f">1,0/an = 0,49 ‰ · 1 − (0,49 ÷ 1,5)</td><td class="n">0,67</td></tr>
+    <tr><td>Atteintes aux biens</td><td class="f">aucune en 3 ans</td><td class="n">1,00</td></tr>
+    <tr><td>Dispositif de sécurité</td><td class="f">0,15 <i>statut tu</i> + 0,30 <i>24 h/24</i></td><td class="n">0,45</td></tr>
+    <tr class="tot"><td colspan="2">(0,02 + 0,67 + 1,00 + 0,45) ÷ 4 = 0,54 &nbsp;×&nbsp; 5</td><td class="n">2,7</td></tr>
   </table>
-  <p>Zéro atteinte aux biens tire la note vers le haut, et les violences physiques sont faibles
-  (0,49 ‰ pour une médiane de 0,14). Ce sont les faits à caractère sexuel — 2,44 ‰ contre 0,66 de
-  médiane — et un dispositif au statut non précisé qui la tirent vers le bas.</p>
+  <p>Ses violences physiques sont faibles (0,49 ‰ pour une médiane de 0,14) et elle ne déclare
+  aucune atteinte aux biens. Ce sont les faits à caractère sexuel qui pèsent — 2,44 ‰ contre 0,66
+  de médiane — portés par le pic de 2023, et un dispositif dont la page ne précise pas le statut.</p>
 </div></div>
 
 <p class="msmall">Le Clery Act ne compte que les faits <b>déclarés à l'établissement</b> et survenus
@@ -596,15 +617,15 @@ jusqu'à 20 000 : 0,80 · au-delà : 0,65.</li>
 <div class="excards"><div class="excard" style="flex:1 1 100%">
   <div class="exhead">🏡 Tiffin <span>exemple de calcul, axe Cadre de vie</span></div>
   <table>
-    <tr><td>Milieu</td><td class="v">bourg</td><td class="f">palier « code 32 »</td><td class="n">0,60</td></tr>
-    <tr><td>Hiver</td><td class="v">41,1°</td><td class="f">palier « 40 à 43° »</td><td class="n">0,40</td></tr>
-    <tr><td>Part d'étudiants étrangers</td><td class="v">5,6 %</td><td class="f">(5,6 − 0,5) ÷ (6 − 0,5)</td><td class="n">0,92</td></tr>
-    <tr><td>Taille</td><td class="v">2 051</td><td class="f">palier « 1 200 à 8 000 »</td><td class="n">1,00</td></tr>
-    <tr class="calc"><td colspan="3">moyenne des 4 indicateurs : 2,92 ÷ 4</td><td class="n">0,73</td></tr>
-    <tr class="tot"><td colspan="3">mise sur 5 : 0,73 × 5</td><td class="n">3,6</td></tr>
+    <tr class="sec"><td colspan="3">Les quatre indicateurs</td></tr>
+    <tr><td>Milieu</td><td class="f">bourg <i>(code 32)</i> · palier</td><td class="n">0,60</td></tr>
+    <tr><td>Hiver</td><td class="f">latitude 41,1° · palier « 40 à 43 »</td><td class="n">0,40</td></tr>
+    <tr><td>Part d'étudiants étrangers</td><td class="f">5,6 % · (5,6 − 0,5) ÷ 5,5</td><td class="n">0,92</td></tr>
+    <tr><td>Taille</td><td class="f">2 051 étudiants · fourchette idéale</td><td class="n">1,00</td></tr>
+    <tr class="tot"><td colspan="2">(0,60 + 0,40 + 0,92 + 1,00) ÷ 4 = 0,73 &nbsp;×&nbsp; 5</td><td class="n">3,6</td></tr>
   </table>
-  <p>Un campus de bonne taille et très international, mais un bourg de l'Ohio et un hiver
-  qui raccourcit la saison.</p>
+  <p>Un campus de bonne taille et très international pour une fac de cette taille, mais un bourg
+  de l'Ohio et un hiver qui raccourcit la saison de golf.</p>
 </div></div>
 
 <p class="msmall">Sources : rosters officiels des universités · College Scorecard (ministère
