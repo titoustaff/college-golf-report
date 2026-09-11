@@ -64,6 +64,10 @@ table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:640px}
    cellules pour tenir dans le conteneur — la colonne « fiche fac » etait la
    premiere sacrifiee. width:max-content laisse chaque colonne prendre la largeur
    de son contenu ; le conteneur (overflow-x:auto) defile si besoin. */
+/* Une seule source de verite : la classe sur la table. Les colonnes de notes sont
+   masquees par le CSS, jamais par un attribut « hidden » pose cellule par cellule —
+   sinon en-tetes et lignes peuvent se desynchroniser au re-rendu. */
+table:not(.avecnotes) .axecol{display:none}
 table.avecnotes{width:max-content;min-width:100%}
 /* uniquement les lignes du tableau : surtout PAS le bloc deplie de la fiche fac,
    qui contient du texte long et doit continuer a se replier normalement */
@@ -812,6 +816,7 @@ function render(){
     if(typeof x==='string'){x=x.toLowerCase();y=y.toLowerCase();}
     return (x<y?-1:x>y?1:0)*state.dir;});
   const esc=s=>(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  majColonnes();
   rowsEl.innerHTML=r.map((t,i)=>{
     if(t.empty){return `<tr class="main erow" data-i="${i}">
       <td class="rank hide-sm hide-md">—</td>
@@ -899,7 +904,6 @@ function render(){
            .filter(([k])=>state[k]!=='').map(([k,ic])=>`${ic}${state[k]}`).join(' ')
          + (state.gardeNN?' (non notées gardées)':'')
        : '');
-  majColonnes();
   document.getElementById('results').innerHTML=parts.join('')+`<span class="filtline" style="flex-basis:100%">${filtreLine}</span>`;
 }
 const FOREIGN=new Set(('thailand canada ireland england scotland wales germany spain france argentina sweden belgium mexico norway japan australia bahamas iceland malaysia colombia portugal bolivia pakistan china dubai netherlands denmark finland italy switzerland austria brazil chile peru ecuador venezuela uae philippines singapore india korea taiwan poland ukraine russia greece turkey uruguay paraguay guatemala panama nigeria kenya morocco egypt israel lebanon').split(/\s+/).concat(['south africa','new zealand','northern ireland','united kingdom','great britain','dominican republic','costa rica','hong kong','czech republic','el salvador','saudi arabia','united arab emirates','puerto rico']));
@@ -932,10 +936,8 @@ document.getElementById('hideempty').addEventListener('change',e=>{state.hideEmp
 // colonnes de notes : masquees tant qu'on ne les demande pas, pour ne pas charger
 // le tableau ; une fois affichees, chaque en-tete trie dans un sens puis dans l'autre.
 function majColonnes(){
-  const on=state.voirnotes;
-  document.querySelectorAll('.axecol').forEach(e=>{e.hidden=!on;});
   const t=document.querySelector('.tablewrap table');
-  if(t) t.classList.toggle('avecnotes', on);
+  if(t) t.classList.toggle('avecnotes', state.voirnotes);
 }
 document.getElementById('voirnotes').addEventListener('change',e=>{
   state.voirnotes=e.target.checked;
