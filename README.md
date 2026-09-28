@@ -1,8 +1,7 @@
 # college-golf-report
 
-Page publique : départs de seniors dans les programmes de golf universitaire **D2 / NAIA** (masculin),
-avec projection 2027/2028, joueurs internationaux/français, coach.
+Page **privée** : accès par mot de passe, contenu chiffré (AES-256).
 
 👉 **https://titoustaff.github.io/college-golf-report/**
 
-Données publiques (rosters officiels des universités). Généré par un outil perso.
+© Hans Leon 2026 — base de données protégée (CPI L341-1), reproduction interdite.
